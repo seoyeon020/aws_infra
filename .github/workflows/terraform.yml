@@ -50,7 +50,7 @@ jobs:
         if: github.event_name == 'pull_request'
         id: plan
         working-directory: ${{ env.TF_WORKING_DIR }}
-        run: terraform plan -no-color -var="key_pair_name=MyCliKeyPair"
+        run: terraform plan -no-color -var="key_pair_name=lsySk"
         continue-on-error: true
 
       - name: Post Plan Result to PR
@@ -82,4 +82,4 @@ jobs:
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         working-directory: ${{ env.TF_WORKING_DIR }}
-        run: terraform apply -auto-approve -var="key_pair_name=MyCliKeyPair"
+        run: terraform apply -auto-approve -var="key_pair_name=lsySk"
